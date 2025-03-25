@@ -1,0 +1,21 @@
+# Node
+**/node_modules
+**/dist
+**/build
+**/.turbo
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode
+.idea
+*.sw?
+
+# Environment
+.env
+.env.*
