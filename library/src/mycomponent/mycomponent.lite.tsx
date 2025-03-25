@@ -1,28 +1,18 @@
-import { For, Show, useStore } from "@builder.io/mitosis";
+import { useStore } from "@builder.io/mitosis";
 
-export function MyComponent(props) {
+export default function Greet() {
   const state = useStore({
-    newItemName: "New item",
-    list: ["hello", "world"],
-    addItem() {
-      state.list = [...state.list, state.newItemName];
-    },
+    name: "",
   });
 
   return (
     <div>
-      <Show when={props.showInput}>
-        <input
-          value={state.newItemName}
-          onChange={(event) => (state.newItemName = event.target.value)}
-        />
-      </Show>
-      <div css={{ padding: "10px" }}>
-        <button onClick={() => state.addItem()}>Add list item</button>
-        <div>
-          <For each={state.list}>{(item) => <div>{item}</div>}</For>
-        </div>
-      </div>
+      <input
+        value={state.name}
+        onChange={(event) => (state.name = event.target.value)}
+        placeholder="Your name"
+      />
+      <div>Hello, {state.name}!</div>
     </div>
   );
 }
